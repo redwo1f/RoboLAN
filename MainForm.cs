@@ -232,6 +232,11 @@ public class MainForm : Form
         }
 
         var options = settings.Clone();
+        string warning = AppSettings.DeleteWarning(options.ExtraArgs);
+        if (warning != null && MessageBox.Show(this, warning + Environment.NewLine + Environment.NewLine + "Start these copies anyway?",
+                "Switches that delete files", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+            return;
+
         foreach (string source in sources)
         {
             string name = Path.GetFileName(source);

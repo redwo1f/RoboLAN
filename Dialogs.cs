@@ -148,6 +148,10 @@ public class SettingsForm : Form
             MessageBox.Show(this, ex.Message, "Invalid pattern", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return;
         }
+        string warning = AppSettings.DeleteWarning(extra.Text);
+        if (warning != null && MessageBox.Show(this, warning + Environment.NewLine + Environment.NewLine + "Save these switches anyway?",
+                "Switches that delete files", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+            return;
         ApplyTo(settings);
         settings.DarkMode = darkMode.Checked;
         settings.DefaultLocalPath = localPath.Text.Trim();

@@ -22,7 +22,7 @@ robocopy "\\PC\share\Some folder" "D:\Copies\Some folder" /E /MT:32 /R:3 /W:5 /X
 
 ## Settings
 
-The Settings button sets robocopy's thread count (`/MT`), retries (`/R`), wait time (`/W`), subfolders (`/E`), skipping junctions (`/XJ`), extra switches, the default local folder, extra PC names to always list, an optional regex for shortening destination folder names, and dark or light theme. It shows a preview of the full command.
+The Settings button sets robocopy's thread count (`/MT`), retries (`/R`), wait time (`/W`), subfolders (`/E`), skipping junctions (`/XJ`), extra switches, the default local folder (`C:\` until you change it), extra PC names to always list, an optional regex for shortening destination folder names, and dark or light theme. It shows a preview of the full command.
 
 Settings and the window layout (size, splitters, column widths, sort order) are saved to `%APPDATA%\RoboLAN\settings.json`.
 
@@ -39,5 +39,9 @@ dotnet publish -c Release -r win-x64 --self-contained false -p:PublishSingleFile
 
 ## Notes
 
-- Robocopy flags in "Extra switches" are passed straight through. Switches like `/MIR`, `/PURGE` or `/MOV` delete files, so use them with care.
+- Robocopy flags in "Extra switches" are passed straight through. `/MIR`, `/PURGE`, `/MOV` and `/MOVE` delete files, so RoboLAN asks for confirmation when you save them and again before each copy that uses them.
 - Exit codes 0 to 7 count as success and 8 or higher as failure, as robocopy defines them.
+
+## License
+
+MIT. See [LICENSE](LICENSE).

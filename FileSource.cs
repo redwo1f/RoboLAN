@@ -38,7 +38,7 @@ public static class FileSource
     {
         path = (path ?? "").Trim().Trim('"').Replace('/', '\\');
         if (path.Length == 0) return "";
-        // A bare name like BUTTONWILLOW2 means a PC.
+        // A bare name like OFFICE-PC means a PC.
         if (path.IndexOfAny(new[] { '\\', ':' }) < 0) path = @"\\" + path;
         if (path.Length == 2 && path[1] == ':') return path + "\\";
         if (path.Length == 3 && path[1] == ':') return path;

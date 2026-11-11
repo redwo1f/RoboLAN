@@ -201,7 +201,7 @@ public class BrowserPane : UserControl
             return FileSource.HostEntries(settings.KnownPCs.Concat(settings.ManualPCs));
         }
         if (FileSource.IsHostPath(path)) return FileSource.ListShares(path);
-        if (!Path.IsPathFullyQualified(path)) throw new ArgumentException("Enter a full path, like Z:\\AI or \\\\PC\\share.");
+        if (!Path.IsPathFullyQualified(path)) throw new ArgumentException("Enter a full path, like C:\\Users or \\\\PC\\share.");
         return FileSource.ListDirectory(path);
     }
 

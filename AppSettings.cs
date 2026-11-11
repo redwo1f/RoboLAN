@@ -37,9 +37,9 @@ public class AppSettings
     public string IncludeFiles { get; set; } = "";
     public string ExcludeFiles { get; set; } = "";
     public string ExtraArgs { get; set; } = "";
-    public string DefaultLocalPath { get; set; } = @"Z:\AI\Track Images";
-    public bool ShortenNames { get; set; } = true;
-    // "Feb-22-2026-Nasa AZ (Sun) [[50bc3da25c]]_half_q78_m3000" -> "Feb-22-2026-Nasa AZ"
+    public string DefaultLocalPath { get; set; } = @"C:\";
+    public bool ShortenNames { get; set; }
+    // "Project Files (Mon) [[1a2b3c4d]]_v2_final" -> "Project Files"
     public string ShortenPattern { get; set; } = @"\s*\([A-Za-z]{3}\)\s*\[\[[0-9a-fA-F]+\]\].*$";
     public List<string> ManualPCs { get; set; } = new();
     public List<string> KnownPCs { get; set; } = new();
@@ -111,6 +111,23 @@ public class AppSettings
         foreach (Match m in Regex.Matches(ExtraArgs ?? "", "\"[^\"]*\"|\\S+"))
             args.Add(m.Value.Trim('"'));
         return args;
+    }
+
+    // Returns a warning for extra switches that make robocopy delete files, or null if there are none.
+    public static string DeleteWarning(string extraArgs)
+    {
+        var found = Regex.Matches(extraArgs ?? "", "\"[^\"]*\"|\\S+")
+            .Select(m => m.Value.Trim('"').ToUpperInvariant())
+            .Where(a => a is "/MIR" or "/PURGE" or "/MOV" or "/MOVE")
+            .Distinct().ToList();
+        if (found.Count == 0) return null;
+
+        var lines = new List<string> { $"Extra switches include {string.Join(", ", found)}." };
+        if (found.Any(a => a is "/MIR" or "/PURGE"))
+            lines.Add("/MIR and /PURGE permanently delete files in the destination that are not in the source. They do not go to the Recycle Bin.");
+        if (found.Any(a => a is "/MOV" or "/MOVE"))
+            lines.Add("/MOV and /MOVE delete files from the source after copying them.");
+        return string.Join(Environment.NewLine + Environment.NewLine, lines);
     }
 
     public static string FormatCommand(IEnumerable<string> args) =>
