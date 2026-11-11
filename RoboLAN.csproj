@@ -8,8 +8,13 @@
     <Nullable>disable</Nullable>
     <AssemblyName>RoboLAN</AssemblyName>
     <RootNamespace>RoboLAN</RootNamespace>
-    <RollForward>Major</RollForward>
+    <!-- Run on the newest installed .NET, not an older unpatched one. -->
+    <RollForward>LatestMajor</RollForward>
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <Version>1.0.0</Version>
+    <Product>RoboLAN</Product>
+    <Company>Redwolf Software</Company>
+    <Copyright>Copyright (c) 2026 Redwolf Software, www.goredwolf.com</Copyright>
   </PropertyGroup>
 
 </Project>

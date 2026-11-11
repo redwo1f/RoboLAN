@@ -10,6 +10,12 @@ Drag one or more folders from the left pane onto a folder in the right pane, and
 robocopy "\\PC\share\Some folder" "D:\Copies\Some folder" /E /MT:32 /R:3 /W:5 /XJ
 ```
 
+## Download
+
+Get `RoboLAN.exe` from the [latest release](https://github.com/redwo1f/RoboLAN/releases/latest). It's a single file with no installer, so put it in any folder and run it.
+
+It needs the free [.NET Desktop Runtime](https://dotnet.microsoft.com/download/dotnet) (version 7 or later, and the newest one you have is used). If it's missing, Windows offers to download it the first time you run RoboLAN. The exe isn't code-signed, so Windows SmartScreen may warn you the first time; choose "More info", then "Run anyway".
+
 ## How it works
 
 - **Scan, then copy.** Each dropped folder is first scanned with robocopy's list-only mode (`/L`) to count its files and bytes, then copied for real. That count drives the progress bars.
@@ -29,7 +35,7 @@ Settings and the window layout (size, splitters, column widths, sort order) are 
 ## Requirements and building
 
 - Windows 10 or 11 with robocopy (built in).
-- .NET 7 or later Desktop Runtime.
+- .NET 7 or later Desktop Runtime to run it, and the .NET 7 SDK or later to build it.
 
 Build a single-file exe:
 
