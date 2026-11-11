@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace RobocopyGui;
+namespace RoboLAN;
 
 public enum JobState { Waiting, Copying, Done, NothingToCopy, Failed, Cancelled }
 
@@ -30,7 +30,7 @@ public class CopyJob
     public long CurrentSpeed { get; private set; }
 
 #if DEBUG
-    static readonly TimeSpan SpeedEvery = TimeSpan.FromSeconds(int.TryParse(Environment.GetEnvironmentVariable("ROBOCOPYGUI_SPEED_SECONDS"), out int s) ? s : 300);
+    static readonly TimeSpan SpeedEvery = TimeSpan.FromSeconds(int.TryParse(Environment.GetEnvironmentVariable("ROBOLAN_SPEED_SECONDS"), out int s) ? s : 300);
 #else
     static readonly TimeSpan SpeedEvery = TimeSpan.FromMinutes(5);
 #endif
@@ -146,7 +146,7 @@ public class CopyJob
 // Appends to a text file beside the exe. A failed write never interrupts a copy.
 public static class CopyLog
 {
-    static readonly string FilePath = Path.Combine(AppContext.BaseDirectory, "RobocopyGUI-log.txt");
+    static readonly string FilePath = Path.Combine(AppContext.BaseDirectory, "RoboLAN-log.txt");
     static readonly object gate = new();
 
     public static void Write(string label, CopyJob job, string detail)

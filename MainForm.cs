@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace RobocopyGui;
+namespace RoboLAN;
 
 public class MainForm : Form
 {
@@ -25,7 +25,7 @@ public class MainForm : Form
     {
         startPaths = args;
         Theme.Dark = settings.DarkMode;
-        Text = "Robocopy GUI";
+        Text = "RoboLAN";
         ClientSize = new Size(LogicalToDeviceUnits(1180), LogicalToDeviceUnits(760));
         MinimumSize = new Size(LogicalToDeviceUnits(760), LogicalToDeviceUnits(520));
         StartPosition = FormStartPosition.CenterScreen;
@@ -422,7 +422,7 @@ public class MainForm : Form
     {
         if (jobs.Any(j => !j.Finished))
         {
-            var answer = MessageBox.Show(this, "Copies are still running. Stop them and exit?", "Robocopy GUI", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var answer = MessageBox.Show(this, "Copies are still running. Stop them and exit?", "RoboLAN", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (answer != DialogResult.Yes) { e.Cancel = true; return; }
             CancelEverything();
         }

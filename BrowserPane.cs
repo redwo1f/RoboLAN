@@ -1,10 +1,10 @@
 using System.Collections;
 
-namespace RobocopyGui;
+namespace RoboLAN;
 
 public class BrowserPane : UserControl
 {
-    const string DragFormat = "RobocopyGui.Folders";
+    const string DragFormat = "RoboLAN.Folders";
 
     readonly bool remote;
     readonly AppSettings settings;

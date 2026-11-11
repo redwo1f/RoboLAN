@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-namespace RobocopyGui;
+namespace RoboLAN;
 
 public static class Theme
 {

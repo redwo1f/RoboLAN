@@ -1,4 +1,4 @@
-namespace RobocopyGui;
+namespace RoboLAN;
 
 /// <summary>Explorer-style address bar: clickable path segments, or click empty space to type or paste a path.</summary>
 public class AddressBar : Panel

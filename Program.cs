@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace RobocopyGui;
+namespace RoboLAN;
 
 static class Program
 {

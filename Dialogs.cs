@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace RobocopyGui;
+namespace RoboLAN;
 
 public static class Dialogs
 {

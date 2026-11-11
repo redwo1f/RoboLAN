@@ -1,7 +1,7 @@
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
-namespace RobocopyGui;
+namespace RoboLAN;
 
 public class PaneLayout
 {
@@ -46,13 +46,13 @@ public class AppSettings
 
 #if DEBUG
     // Keeps test runs away from the real settings file.
-    static string FilePath => Environment.GetEnvironmentVariable("ROBOCOPYGUI_SETTINGS") ?? DefaultFilePath;
+    static string FilePath => Environment.GetEnvironmentVariable("ROBOLAN_SETTINGS") ?? DefaultFilePath;
 #else
     static string FilePath => DefaultFilePath;
 #endif
 
     static string DefaultFilePath => Path.Combine(
-        Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "RobocopyGUI", "settings.json");
+        Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "RoboLAN", "settings.json");
 
     public static AppSettings Load()
     {

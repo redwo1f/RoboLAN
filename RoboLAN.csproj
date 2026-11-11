@@ -6,8 +6,8 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
-    <AssemblyName>RobocopyGUI</AssemblyName>
-    <RootNamespace>RobocopyGui</RootNamespace>
+    <AssemblyName>RoboLAN</AssemblyName>
+    <RootNamespace>RoboLAN</RootNamespace>
     <RollForward>Major</RollForward>
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
   </PropertyGroup>

@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 
-namespace RobocopyGui;
+namespace RoboLAN;
 
 public enum EntryKind { Host, Share, Drive, Folder, File }
 
