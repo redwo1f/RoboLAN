@@ -2,6 +2,8 @@
 
 A small Windows app for copying folders from other PCs on your network with robocopy, by drag and drop.
 
+![RoboLAN main window](docs/main-window.png)
+
 The left pane shows the PCs on your network, then their shared folders and subfolders. The right pane shows your own drives and folders. Both panes look like Explorer's Details view (name and date modified), and both have a path bar you can click and type or paste into, including `\\PCNAME` for PCs that Explorer doesn't list.
 
 Drag one or more folders from the left pane onto a folder in the right pane, and RoboLAN runs robocopy for each one, for example:
@@ -29,6 +31,8 @@ It needs the free [.NET Desktop Runtime](https://dotnet.microsoft.com/download/d
 ## Settings
 
 The Settings button sets robocopy's thread count (`/MT`), retries (`/R`), wait time (`/W`), subfolders (`/E`), skipping junctions (`/XJ`), extra switches, the default local folder (`C:\` until you change it), extra PC names to always list, an optional regex for shortening destination folder names, and dark or light theme. It shows a preview of the full command.
+
+![RoboLAN settings](docs/settings.png)
 
 Settings and the window layout (size, splitters, column widths, sort order) are saved to `%APPDATA%\RoboLAN\settings.json`.
 
